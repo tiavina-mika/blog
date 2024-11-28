@@ -1,13 +1,12 @@
 import { createArticleByAuthor, createUser, getUser } from "./mock";
 
-describe('Article', () => {
+describe('Article test', () => {
   let Article: Parse.ObjectConstructor;
 
   let author: Parse.User;
 
   beforeAll(async () => {
     Article = Parse.Object.extend('Article');
-    // Define a sample Parse Class
     author = await createUser()
   });
 
@@ -21,7 +20,6 @@ describe('Article', () => {
     expect(article).toBeDefined();
   });
 
-  // sum function test
   it('should author not defined', async () => {
     try {
       await createArticleByAuthor(undefined);
@@ -29,5 +27,4 @@ describe('Article', () => {
       expect((error as Error).message).toBe('Author is required');
     }
   });
-
 });

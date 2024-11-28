@@ -1,6 +1,6 @@
 import { createUser, deleteUser, getUser } from "./mock";
 
-describe('Author', () => {
+describe('Author test', () => {
   it('should user in user test case not defined', async () => {
     const user = await getUser('john');
     expect(user).toBeUndefined();

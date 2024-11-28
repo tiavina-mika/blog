@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-require-imports */
 /** @type {import('ts-jest').JestConfigWithTsJest} */
-const { pathsToModuleNameMapper } = require('ts-jest');
 
 module.exports = {
   // use mongodb as preset instead of ts-jest
