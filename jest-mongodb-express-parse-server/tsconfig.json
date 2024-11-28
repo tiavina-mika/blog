@@ -31,15 +31,11 @@
   "include": [
     "src/**/*",
     "src/types",
-    "__tests__/**/*.ts",
-    "__tests__/jest.setup.ts",
+    "__tests__/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "src/dist",
-    "config/esbuild/build.config.js",
     "config/**/*.js",
-    "client",
     "jest.config.js",
   ]
 }

@@ -9,7 +9,6 @@ import { Db, MongoClient } from 'mongodb';
 import { ParseServer } from 'parse-server';
 import dotenv from 'dotenv';
 import path from 'path';
-import { initializeCloudinary } from '../src/config/config';
 import express from 'express';
 import crypto from 'crypto';
 import { deleteTestDatabases, generateRandomPort } from './utils';
@@ -19,38 +18,22 @@ export const wait = (ms = 1000): Promise<void> => new Promise(resolve => setTime
 let parseServer: any;
 let server: http.Server;
 let connection: MongoClient;
-let db: Db;
 
 beforeAll(async () => {
-  console.log(' --------------------- beforeAll global --------------------- ');
-  // Define global variables
-  (global as any).IS_TEST = true;
-
-  // Load environment variables
-  await dotenv.config({ path: path.join(__dirname, '..', '.env.test') });
-
-  // Initialize Cloudinary
-  initializeCloudinary();
-
   const port = generateRandomPort();
   const randomText = crypto.randomUUID();
-  // const randomText = crypto.randomBytes(16).toString('hex');
-
 
   const appId = 'testAppId' + randomText;
   const masterKey = 'testMasterKey' + randomText;
   const serverURL = `http://localhost:${port}/parse`;
 
   const mongoUrl = process.env.MONGO_URL + 'test_' + randomText;
-  console.log(' -------------- port: ', port, randomText, mongoUrl);
   
   // Connect to MongoDB
   connection = await MongoClient.connect(mongoUrl, {});
-  db = await connection.db();
 
   // Configure Parse Server with MongoDB URI
   parseServer = new ParseServer({
-    cloud: path.join(__dirname, '../src/cloud', 'index.ts'),
     databaseURI: mongoUrl,
     appId,
     masterKey,
@@ -102,7 +85,6 @@ afterAll(async () => {
   }
   // 3. Stop the MongoDB server
   if (connection) {
-    // await connection.close();
     await deleteTestDatabases(connection);
   }
 });

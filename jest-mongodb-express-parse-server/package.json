@@ -1,5 +1,5 @@
 {
-  "name": "jestmongodb-express-parse-server",
+  "name": "jest-mongodb-express-parse-server",
   "version": "1.0.0",
   "repository": "hhttps://github.com/1lalana/server.git",
   "author": "tiavina-mika <tiavinamika@gmail.com>",
@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "cross-env": "^7.0.3",
-    "datauri": "^4.1.0",
     "dotenv": "^16.4.5",
     "esbuild": "^0.24.0",
     "esbuild-copy-files": "^0.2.16",
