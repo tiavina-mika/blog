@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    /* Base Options: */
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "verbatimModuleSyntax": false,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "strictNullChecks": true,
+    "module": "ESNext",
+    /* If NOT transpiling with TypeScript: */
+    "moduleResolution": "Node",
+    "noEmit": true,
+    /* If your code doesn't run in the DOM: */
+    "lib": [
+      "es2022"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+  },
+  "include": [
+    "src/**/*",
+    "src/types",
+    "__tests__/**/*.ts",
+    "__tests__/jest.setup.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "src/dist",
+    "config/esbuild/build.config.js",
+    "config/**/*.js",
+    "client",
+    "jest.config.js",
+  ]
+}
